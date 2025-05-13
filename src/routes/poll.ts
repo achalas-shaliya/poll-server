@@ -4,7 +4,7 @@ import { RateLimiterMemory } from "rate-limiter-flexible";
 import { createPoll, votePoll, getPoll } from "../pollManager";
 import { Server } from "socket.io";
 
-const SECRET = "herogr@m2022";
+const SECRET = process.env.SECRET;
 const limiter = new RateLimiterMemory({ points: 5, duration: 1 });
 
 interface UserPayload {
