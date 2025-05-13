@@ -1,0 +1,15 @@
+CREATE TABLE polls (
+  id SERIAL PRIMARY KEY,
+  question TEXT NOT NULL,
+  options TEXT[] NOT NULL,
+  expires_at TIMESTAMP,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE votes (
+  id SERIAL PRIMARY KEY,
+  poll_id INT NOT NULL REFERENCES polls(id) ON DELETE CASCADE,
+  user_id TEXT NOT NULL,
+  option_index INT NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

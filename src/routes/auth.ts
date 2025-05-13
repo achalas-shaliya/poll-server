@@ -1,8 +1,11 @@
 import express, { Request, Response, Router } from "express";
 import jwt from "jsonwebtoken";
+import { config } from "dotenv";
+config();
 
 const router: Router = express.Router();
-const SECRET = "herogr@m2022";
+
+const SECRET = process.env.SECRET;
 
 interface UserPayload {
   uid: string;
